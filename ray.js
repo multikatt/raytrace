@@ -44,7 +44,7 @@ class Ray {
 
     if ((u >= 0 && u <= 1) && (t >= 0 && t <= 1)) {
       const p = createVector(x1 + t*(x2 - x1), y1 + t * (y2 -y1));
-      circle(p.x, p.y, 3);
+      return p;
     }
   }
 }
