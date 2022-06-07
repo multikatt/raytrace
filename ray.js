@@ -1,7 +1,7 @@
 class Ray {
   constructor(x, y, a) {
     this.pos = createVector(x, y);
-    this.angle = p5.Vector.fromAngle(a).mult(10);
+    this.angle = p5.Vector.fromAngle(a);
   }
 
   draw() {
