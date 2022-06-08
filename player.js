@@ -30,9 +30,7 @@ class Player {
   draw() {
     push();
     rotate(this.angle);
-    stroke(255, 200, 119, 10);
-    strokeCap(SQUARE);
-    strokeWeight(15);
+    
     for (let r of this.rays) {
       let closest = Infinity;
       let minDist = Infinity;
@@ -47,12 +45,10 @@ class Player {
           }
         }
       }
-
-      line(this.pos.x, this.pos.y, closest.x, closest.y);
+      r.closest = closest;
+      r.closest.pdist = minDist;
+      r.draw();
     }
     pop();
-
-
   }
-
 }

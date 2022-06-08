@@ -8,6 +8,7 @@ let player;
 
 function setup() {
   createCanvas(topViewConfig.width, topViewConfig.height + bottomViewConfig.height);
+  //frameRate(15);
 
   for (let i = 0; i < 5; i++) {
     walls.push(new Wall(random(0, topViewConfig.width), random(0, topViewConfig.height), random(0, topViewConfig.width), random(0, topViewConfig.height)));
@@ -19,6 +20,8 @@ function setup() {
   walls.push(new Wall(topViewConfig.width, 0, topViewConfig.width, topViewConfig.height));
 
   player = new Player(200, 200, radians(0), walls);
+
+  fpview = new FPView(walls, player, { pos: { x: 0, y: topViewConfig.height + 1 }, size: bottomViewConfig });
 }
 
 function draw() {
@@ -30,6 +33,9 @@ function draw() {
   for (let w of walls) {
     w.draw();
   }
+
+  fpview.draw();
+
   if (keyIsDown(87)) { //w
     player.move("f");
   }
