@@ -49,6 +49,8 @@ class Player {
       r.closest.pdist = minDist;
       r.draw();
     }
+
+    circle(this.pos.x, this.pos, 25);
     pop();
   }
 }

@@ -8,12 +8,20 @@ let player;
 
 function setup() {
   createCanvas(topViewConfig.width, topViewConfig.height + bottomViewConfig.height);
-  //frameRate(15);
+  //frameRate(5);
 
-  for (let i = 0; i < 5; i++) {
-    walls.push(new Wall(random(0, topViewConfig.width), random(0, topViewConfig.height), random(0, topViewConfig.width), random(0, topViewConfig.height)));
+  //for (let i = 0; i < 5; i++) {
+  //  walls.push(new Wall(random(0, topViewConfig.width), random(0, topViewConfig.height), random(0, topViewConfig.width), random(0, topViewConfig.height)));
+  //}
+  for (let i = 0; i < 1; i++) {
+    s = random(15, 30);
+    x = random(0, topViewConfig.width-s);
+    y = random(0, topViewConfig.height-s);
+    walls.push(new Wall(x, y, x, y+s));
+    walls.push(new Wall(x, y, x+s, y));
+    walls.push(new Wall(x+s, y, x+s, y+s));
+    walls.push(new Wall(x, y+s, x+s, y+s));
   }
-
   walls.push(new Wall(0, 0, topViewConfig.width, 0));
   walls.push(new Wall(0, 0, 0, topViewConfig.height));
   walls.push(new Wall(0, topViewConfig.height, topViewConfig.width, topViewConfig.height));
