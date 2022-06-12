@@ -36,16 +36,28 @@ function draw() {
 
   fpview.draw();
 
-  if (keyIsDown(87)) { //w
+  if (keyIsDown(87)) {
+    //w
     player.move("f");
   }
-  if (keyIsDown(83)) { //s
+  if (keyIsDown(83)) {
+    //s
     player.move("b");
   }
-  if (keyIsDown(65)) { //a
+  if (keyIsDown(81)) {
+    //q
+    player.move("l");
+  }
+  if (keyIsDown(69)) {
+    //e
+    player.move("r");
+  }
+  if (keyIsDown(65)) {
+    //a
     player.rotate(-1);
   }
-  if (keyIsDown(68)) { //d
+  if (keyIsDown(68)) {
+    //d
     player.rotate(1);
   }
 }

@@ -13,10 +13,30 @@ class Player {
 
   move(dir) {
     if (dir == "f") {
-      this.pos.add(createVector(sin(this.angle.heading()), cos(this.angle.heading())));
+      this.pos.add(
+        createVector(sin(this.angle.heading()), cos(this.angle.heading()))
+      );
     }
     if (dir == "b") {
-      this.pos.sub(createVector(sin(this.angle.heading()), cos(this.angle.heading())));
+      this.pos.sub(
+        createVector(sin(this.angle.heading()), cos(this.angle.heading()))
+      );
+    }
+    if (dir == "l") {
+      this.pos.sub(
+        createVector(
+          sin(this.angle.heading() - radians(90)),
+          cos(this.angle.heading() - radians(90))
+        )
+      );
+    }
+    if (dir == "r") {
+      this.pos.add(
+        createVector(
+          sin(this.angle.heading() - radians(90)),
+          cos(this.angle.heading() - radians(90))
+        )
+      );
     }
   }
 
@@ -30,7 +50,7 @@ class Player {
   draw() {
     push();
     rotate(this.angle);
-    
+
     for (let r of this.rays) {
       let closest = Infinity;
       let minDist = Infinity;
