@@ -24,6 +24,8 @@ function setup() {
   fpview = new FPView(walls, player, { pos: { x: 0, y: topViewConfig.height + 1 }, size: bottomViewConfig });
 }
 
+let newWall = null;
+
 function draw() {
   background(0);
   //r = new Ray(100, 200, radians(a));
@@ -59,5 +61,20 @@ function draw() {
   if (keyIsDown(68)) {
     //d
     player.rotate(1);
+  }
+
+  if (mouseIsPressed) {
+    if (newWall === null) {
+      newWall = new Wall(mouseX, mouseY, 0, 0);
+    }
+    newWall.end = createVector(mouseX, mouseY);
+    newWall.draw();
+  }
+
+  if (mouseIsPressed === false) {
+    if (newWall !== null) {
+      walls.push(newWall);
+      newWall = null;
+    }
   }
 }
